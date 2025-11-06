@@ -1,0 +1,27 @@
+﻿@model ProyectoMaytapiMVC.Models.MaytapiMessageModel
+
+<h2>Enviar mensaje a WhatsApp</h2>
+
+<form asp-action="Enviar" method="post">
+    <label>Número destino (sin +):</label>
+    <input type="text" name="NumeroDestino" class="form-control" placeholder="5917XXXXXXX" required />
+    <label>Mensaje:</label>
+    <textarea name="Mensaje" class="form-control" required></textarea>
+    <br />
+    <button type="submit" class="btn btn-success">Enviar mensaje</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model?.Resultado))
+{
+    <div class="alert alert-info mt-3">@Model.Resultado</div>
+}
+
+<hr />
+
+<h3>📥 Mensajes entrantes:</h3>
+<ul id="mensajes" class="list-group"></ul>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+}
