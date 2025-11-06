@@ -1,0 +1,13 @@
+# Build files
+bin/
+obj/
+*.user
+*.suo
+
+# Configs con datos sensibles
+appsettings.json
+appsettings.Development.json
+
+# Sistema
+.vs/
+*.log
